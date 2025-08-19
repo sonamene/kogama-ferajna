@@ -230,7 +230,7 @@
         
         <h1 class="title">🔥 FERAJNA BATTLES 🔥</h1>
         
-        <div class="prize">💰 100 ZŁOTYCH MONET 💰</div>
+        <div class="prize">💰 100 ZŁOTYCH KOSTEK 💰</div>
         
         <div class="countdown">
             <div style="font-size: 24px; color: #ff0000; font-weight: 900;">JUTRO O <span id="localEventTime">19:00</span>!</div>
@@ -242,6 +242,7 @@
             <div class="feature">🏆 <strong>ZWYCIĘZCA BIERZE WSZYSTKO</strong> - Bez litości</div>
             <div class="feature">💎 <strong>EKSKLUZYWNA NAGRODA</strong> - Tylko dla jednego</div>
             <div class="feature">🔥 <strong>ADRENALINA NA MAKSIE</strong> - Poczuj moc</div>
+            <div class="feature">🏰 <strong>WALKI POMIĘDZY WSZYSTKIMI BAZAMI</strong> - globalna rywalizacja</div>
         </div>
         
         <div class="countdown-timer" id="countdownTimer">
@@ -260,12 +261,12 @@
     </div>
 
     <script>
-        // Improved translations with all interactive elements
+        // Pełne tłumaczenia + nowy punkt o "bazach", monety -> kostki
         const translations = {
             'pl': {
                 lastHours: '⚠️ OSTATNIE GODZINY! ⚠️',
                 title: '🔥 FERAJNA BATTLES 🔥',
-                prize: '💰 100 ZŁOTYCH MONET 💰',
+                prize: '💰 100 ZŁOTYCH KOSTEK 💰',
                 tomorrowAt: 'JUTRO O',
                 yourLocalTime: '(Twój lokalny czas)',
                 timeLeft: '⏰ DO STARTU:',
@@ -275,17 +276,18 @@
                 winnerTakesAll: '🏆 <strong>ZWYCIĘZCA BIERZE WSZYSTKO</strong> - Bez litości',
                 exclusiveReward: '💎 <strong>EKSKLUZYWNA NAGRODA</strong> - Tylko dla jednego',
                 maxAdrenaline: '🔥 <strong>ADRENALINA NA MAKSIE</strong> - Poczuj moc',
+                baseWars: '🏰 <strong>WALKI POMIĘDZY WSZYSTKIMI BAZAMI</strong> - globalna rywalizacja',
                 prepareBtn: '⏰ PRZYGOTUJ SIĘ DO WALKI!',
                 fightBtn: '⚔️ WALCZ TERAZ!',
                 limitedSpots: '⏰ MIEJSCA SĄ OGRANICZONE!',
                 becomeKing: '👑 ZOSTAŃ KRÓLEM FERAJNY!',
                 alertWait: '🔥 Cierpliwości! Walka rozpocznie się za:',
-                alertPrepare: '\n\n⚔️ Przygotuj się na epicką batalię!'
+                alertPrepare: '\\n\\n⚔️ Przygotuj się na epicką batalię!'
             },
             'en': {
                 lastHours: '⚠️ LAST HOURS! ⚠️',
                 title: '🔥 FERAJNA BATTLES 🔥',
-                prize: '💰 100 GOLD COINS 💰',
+                prize: '💰 100 GOLD CUBES 💰',
                 tomorrowAt: 'TOMORROW AT',
                 yourLocalTime: '(Your local time)',
                 timeLeft: '⏰ TIME LEFT:',
@@ -295,17 +297,18 @@
                 winnerTakesAll: '🏆 <strong>WINNER TAKES ALL</strong> - No mercy',
                 exclusiveReward: '💎 <strong>EXCLUSIVE REWARD</strong> - Only for one',
                 maxAdrenaline: '🔥 <strong>MAX ADRENALINE</strong> - Feel the power',
+                baseWars: '🏰 <strong>BATTLES BETWEEN ALL BASES</strong> - global rivalry',
                 prepareBtn: '⏰ GET READY TO FIGHT!',
                 fightBtn: '⚔️ FIGHT NOW!',
                 limitedSpots: '⏰ LIMITED SPOTS!',
                 becomeKing: '👑 BECOME THE KING!',
                 alertWait: '🔥 Patience! Battle starts in:',
-                alertPrepare: '\n\n⚔️ Prepare for epic battle!'
+                alertPrepare: '\\n\\n⚔️ Prepare for epic battle!'
             },
             'ru': {
                 lastHours: '⚠️ ПОСЛЕДНИЕ ЧАСЫ! ⚠️',
-                title: '🔥 БИТВЫ ФРАЙНЫ 🔥',
-                prize: '💰 100 ЗОЛОТЫХ МОНЕТ 💰',
+                title: '🔥 БИТВЫ ФЕРАЙНЫ 🔥',
+                prize: '💰 100 ЗОЛОТЫХ КУБОВ 💰',
                 tomorrowAt: 'ЗАВТРА В',
                 yourLocalTime: '(Ваше местное время)',
                 timeLeft: '⏰ ДО СТАРТА:',
@@ -315,72 +318,76 @@
                 winnerTakesAll: '🏆 <strong>ПОБЕДИТЕЛЬ ЗАБИРАЕТ ВСЁ</strong> - Без пощады',
                 exclusiveReward: '💎 <strong>ЭКСКЛЮЗИВНАЯ НАГРАДА</strong> - Только для одного',
                 maxAdrenaline: '🔥 <strong>МАКСИМУМ АДРЕНАЛИНА</strong> - Почувствуй силу',
+                baseWars: '🏰 <strong>БОИ МЕЖДУ ВСЕМИ БАЗАМИ</strong> - глобальное соперничество',
                 prepareBtn: '⏰ ГОТОВЬСЯ К БИТВЕ!',
                 fightBtn: '⚔️ В БОЙ СЕЙЧАС!',
                 limitedSpots: '⏰ МЕСТА ОГРАНИЧЕНЫ!',
                 becomeKing: '👑 СТАНЬ КОРОЛЁМ!',
                 alertWait: '🔥 Терпение! Битва начнётся через:',
-                alertPrepare: '\n\n⚔️ Готовься к эпической битве!'
+                alertPrepare: '\\n\\n⚔️ Готовься к эпической битве!'
             },
             'de': {
                 lastHours: '⚠️ LETZTE STUNDEN! ⚠️',
                 title: '🔥 FERAJNA SCHLACHTEN 🔥',
-                prize: '💰 100 GOLDMÜNZEN 💰',
+                prize: '💰 100 GOLDWÜRFEL 💰',
                 tomorrowAt: 'MORGEN UM',
                 yourLocalTime: '(Deine Ortszeit)',
                 timeLeft: '⏰ ZEIT BIS START:',
                 battleActive: '🔥 KAMPF LÄUFT! 🔥',
-                joinNow: '⚔️ JETZT KÄMPFEN!',
+                joinNow: '⚔️ JETZT DER SCHLACHT BEITRETEN!',
                 epicDuels: '⚔️ <strong>EPISCHE DUELLE</strong> - Kämpfe wie ein Gladiator',
                 winnerTakesAll: '🏆 <strong>GEWINNER NIMMT ALLES</strong> - Ohne Gnade',
                 exclusiveReward: '💎 <strong>EXKLUSIVE BELOHNUNG</strong> - Nur für einen',
                 maxAdrenaline: '🔥 <strong>MAX ADRENALIN</strong> - Spüre die Macht',
+                baseWars: '🏰 <strong>KÄMPFE ZWISCHEN ALLEN BASISLAGERN</strong> - globaler Wettstreit',
                 prepareBtn: '⏰ BEREIT ZUM KAMPF!',
                 fightBtn: '⚔️ JETZT KÄMPFEN!',
                 limitedSpots: '⏰ BEGRENZTE PLÄTZE!',
                 becomeKing: '👑 WERDE KÖNIG!',
                 alertWait: '🔥 Geduld! Kampf beginnt in:',
-                alertPrepare: '\n\n⚔️ Bereite dich auf epischen Kampf vor!'
+                alertPrepare: '\\n\\n⚔️ Bereite dich auf epischen Kampf vor!'
             },
             'fr': {
                 lastHours: '⚠️ DERNIÈRES HEURES! ⚠️',
                 title: '🔥 BATAILLES FERAJNA 🔥',
-                prize: '💰 100 PIÈCES D\'OR 💰',
+                prize: '💰 100 CUBES D\'OR 💰',
                 tomorrowAt: 'DEMAIN À',
                 yourLocalTime: '(Votre heure locale)',
-                timeLeft: '⏰ TEMPS RESTANT:',
-                battleActive: '🔥 BATAILLE EN COURS! 🔥',
-                joinNow: '⚔️ REJOINS LA BATAILLE!',
+                timeLeft: '⏰ TEMPS RESTANT :',
+                battleActive: '🔥 BATAILLE EN COURS ! 🔥',
+                joinNow: '⚔️ REJOINS LA BATAILLE MAINTENANT !',
                 epicDuels: '⚔️ <strong>DUELS ÉPIQUES</strong> - Combats comme un gladiateur',
                 winnerTakesAll: '🏆 <strong>LE GAGNANT PREND TOUT</strong> - Sans pitié',
                 exclusiveReward: '💎 <strong>RÉCOMPENSE EXCLUSIVE</strong> - Pour un seul',
                 maxAdrenaline: '🔥 <strong>MAX ADRÉNALINE</strong> - Ressens le pouvoir',
-                prepareBtn: '⏰ PRÊT À COMBATTRE!',
-                fightBtn: '⚔️ COMBAT MAINTENANT!',
-                limitedSpots: '⏰ PLACES LIMITÉES!',
-                becomeKing: '👑 DEVIENS ROI!',
-                alertWait: '🔥 Patience! La bataille commence dans:',
-                alertPrepare: '\n\n⚔️ Prépare-toi pour une bataille épique!'
+                baseWars: '🏰 <strong>COMBATS ENTRE TOUTES LES BASES</strong> - rivalité globale',
+                prepareBtn: '⏰ PRÊT À COMBATTRE !',
+                fightBtn: '⚔️ COMBAT MAINTENANT !',
+                limitedSpots: '⏰ PLACES LIMITÉES !',
+                becomeKing: '👑 DEVIENS ROI !',
+                alertWait: '🔥 Patience ! La bataille commence dans :',
+                alertPrepare: '\\n\\n⚔️ Prépare-toi pour une bataille épique !'
             },
             'es': {
                 lastHours: '⚠️ ¡ÚLTIMAS HORAS! ⚠️',
                 title: '🔥 BATALLAS FERAJNA 🔥',
-                prize: '💰 100 MONEDAS DE ORO 💰',
+                prize: '💰 100 CUBOS DE ORO 💰',
                 tomorrowAt: 'MAÑANA A LAS',
                 yourLocalTime: '(Tu hora local)',
                 timeLeft: '⏰ TIEMPO RESTANTE:',
                 battleActive: '🔥 ¡BATALLA EN VIVO! 🔥',
-                joinNow: '⚔️ ¡ÚNETE A LA BATALLA!',
+                joinNow: '⚔️ ¡ÚNETE A LA BATALLA AHORA!',
                 epicDuels: '⚔️ <strong>DUELOS ÉPICOS</strong> - Lucha como un gladiador',
                 winnerTakesAll: '🏆 <strong>EL GANADOR SE LLEVA TODO</strong> - Sin piedad',
                 exclusiveReward: '💎 <strong>RECOMPENSA EXCLUSIVA</strong> - Solo para uno',
                 maxAdrenaline: '🔥 <strong>ADRENALINA MÁXIMA</strong> - Siente el poder',
-                prepareBtn: '⚔️ ¡LISTO PARA LUCHAR!',
+                baseWars: '🏰 <strong>BATALLAS ENTRE TODAS LAS BASES</strong> - rivalidad global',
+                prepareBtn: '⏰ ¡LISTO PARA LUCHAR!',
                 fightBtn: '⚔️ ¡LUCHA AHORA!',
                 limitedSpots: '⏰ ¡LUGARES LIMITADOS!',
                 becomeKing: '👑 ¡CONVIÉRTETE EN REY!',
                 alertWait: '🔥 ¡Paciencia! La batalla comienza en:',
-                alertPrepare: '\n\n⚔️ ¡Prepárate para una batalla épica!'
+                alertPrepare: '\\n\\n⚔️ ¡Prepárate para una batalla épica!'
             }
         };
 
@@ -402,39 +409,30 @@
             document.querySelector('.feature:nth-child(2)').innerHTML = t.winnerTakesAll;
             document.querySelector('.feature:nth-child(3)').innerHTML = t.exclusiveReward;
             document.querySelector('.feature:nth-child(4)').innerHTML = t.maxAdrenaline;
+            document.querySelector('.feature:nth-child(5)').innerHTML = t.baseWars;
             document.querySelector('.warning').innerHTML = t.limitedSpots + '<br>' + t.becomeKing;
         }
 
         // Calculate precise Poland timezone offset (CET/CEST)
         function getPolandOffset(date) {
-            // Create a date in Poland timezone using Intl API
             const utcTime = date.getTime() + (date.getTimezoneOffset() * 60000);
-            const polandTime = new Date(utcTime + (1 * 3600000)); // Base CET offset
-            
-            // Check if it's DST period in Poland (last Sunday in March to last Sunday in October)
+            const polandTime = new Date(utcTime + (1 * 3600000)); // base CET
             const year = date.getFullYear();
             const marchLastSunday = new Date(year, 2, 31 - ((new Date(year, 2, 31).getDay() || 7) - 1));
             const octoberLastSunday = new Date(year, 9, 31 - ((new Date(year, 9, 31).getDay() || 7) - 1));
-            
             if (date >= marchLastSunday && date < octoberLastSunday) {
-                // CEST (UTC+2)
-                return 2;
+                return 2; // CEST
             } else {
-                // CET (UTC+1)  
-                return 1;
+                return 1; // CET
             }
         }
         
-        // Calculate time to tomorrow 7 PM Poland time, converted to user's local time
+        // Calculate time to next 19:00 Poland time
         function getTimeToEvent() {
             const now = new Date();
             const polandOffset = getPolandOffset(now);
-            
-            // Create Poland time for today 7 PM first
             const todayPolandEvent = new Date();
             todayPolandEvent.setUTCHours(19 - polandOffset, 0, 0, 0);
-            
-            // If today's event hasn't passed, use it, otherwise use tomorrow
             let eventTime;
             if (now < todayPolandEvent) {
                 eventTime = todayPolandEvent;
@@ -443,20 +441,15 @@
                 tomorrowPolandEvent.setDate(tomorrowPolandEvent.getDate() + 1);
                 eventTime = tomorrowPolandEvent;
             }
-            
             return eventTime - now;
         }
         
-        // Get the local time equivalent of 7 PM Poland time
+        // Get local Date of that event
         function getLocalEventTime() {
             const now = new Date();
             const polandOffset = getPolandOffset(now);
-            
-            // Create exact Poland time (19:00 Poland = 19:00 - polandOffset UTC)
             const todayPolandEvent = new Date();
             todayPolandEvent.setUTCHours(19 - polandOffset, 0, 0, 0);
-            
-            // If today's event hasn't passed, use it, otherwise use tomorrow
             if (now < todayPolandEvent) {
                 return todayPolandEvent;
             } else {
@@ -466,12 +459,11 @@
             }
         }
         
-        // Format time remaining
+        // Format remaining time
         function formatTime(ms) {
             const hours = Math.floor(ms / (1000 * 60 * 60));
             const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((ms % (1000 * 60)) / 1000);
-            
             if (hours > 0) {
                 return `${hours}h ${minutes}m ${seconds}s`;
             } else if (minutes > 0) {
@@ -481,7 +473,7 @@
             }
         }
         
-        // Main countdown update function
+        // Main countdown update
         function updateCountdown() {
             const timeLeft = getTimeToEvent();
             const localEventTime = getLocalEventTime();
@@ -490,16 +482,15 @@
             const button = document.getElementById('battleButton');
             const buttonText = document.getElementById('buttonText');
             const timeLeftDiv = document.getElementById('timeLeft');
-            const localEventTimeSpan = document.getElementById('localEventTime');
             const localTimeZone = document.getElementById('localTimeZone');
             
-            // Update the event time display
+            // Update event time display
             const countdownText = document.querySelector('.countdown > div');
             countdownText.innerHTML = `${t.tomorrowAt} <span id="localEventTime">${localTimeString}</span>!`;
             localTimeZone.textContent = `🕒 ${t.yourLocalTime}`;
             
             if (timeLeft > 0) {
-                // Before the event
+                // Before event
                 timeLeftDiv.innerHTML = `${t.timeLeft} ${formatTime(timeLeft)}`;
                 button.className = 'cta disabled';
                 buttonText.innerHTML = t.prepareBtn;
@@ -507,7 +498,7 @@
                     alert(`${t.alertWait} ${formatTime(timeLeft)}${t.alertPrepare}`);
                 };
             } else {
-                // Event is live!
+                // Event live
                 timeLeftDiv.innerHTML = t.battleActive;
                 button.className = 'cta active';
                 buttonText.innerHTML = t.fightBtn;
@@ -517,7 +508,7 @@
             }
         }
         
-        // Initialize
+        // Init
         updateTexts();
         updateCountdown();
         setInterval(updateCountdown, 1000);
@@ -530,10 +521,8 @@
             particle.style.animationDelay = Math.random() * 4 + 's';
             particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
             document.getElementById('particles').appendChild(particle);
-            
             setTimeout(() => particle.remove(), 6000);
         }
-        
         setInterval(createParticle, 500);
         
         // Button hover effects
@@ -542,11 +531,9 @@
                 this.style.textShadow = '0 0 20px #fff';
             }
         });
-        
         document.getElementById('battleButton').addEventListener('mouseleave', function() {
             this.style.textShadow = 'none';
         });
     </script>
 </body>
-
 </html>
