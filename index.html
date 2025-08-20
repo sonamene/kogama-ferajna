@@ -233,7 +233,7 @@
         <div class="prize">💰 100 ZŁOTYCH KOSTEK 💰</div>
         
         <div class="countdown">
-            <div style="font-size: 24px; color: #ff0000; font-weight: 900;">JUTRO O <span id="localEventTime">19:00</span>!</div>
+            <div style="font-size: 24px; color: #ff0000; font-weight: 900;">DZISIAJ O <span id="localEventTime">19:00</span>!</div>
             <div class="time-zone" id="localTimeZone">🇵🇱 (Twój lokalny czas)</div>
         </div>
         
@@ -267,7 +267,7 @@
                 lastHours: '⚠️ OSTATNIE GODZINY! ⚠️',
                 title: '🔥 FERAJNA BATTLES 🔥',
                 prize: '💰 100 ZŁOTYCH KOSTEK 💰',
-                tomorrowAt: 'JUTRO O',
+                todayAt: 'DZISIAJ O',
                 yourLocalTime: '(Twój lokalny czas)',
                 timeLeft: '⏰ DO STARTU:',
                 battleActive: '🔥 WALKA TRWA! 🔥',
@@ -288,7 +288,7 @@
                 lastHours: '⚠️ LAST HOURS! ⚠️',
                 title: '🔥 FERAJNA BATTLES 🔥',
                 prize: '💰 100 GOLD CUBES 💰',
-                tomorrowAt: 'TOMORROW AT',
+                todayAt: 'TODAY AT',
                 yourLocalTime: '(Your local time)',
                 timeLeft: '⏰ TIME LEFT:',
                 battleActive: '🔥 BATTLE IS LIVE! 🔥',
@@ -309,7 +309,7 @@
                 lastHours: '⚠️ ПОСЛЕДНИЕ ЧАСЫ! ⚠️',
                 title: '🔥 БИТВЫ ФЕРАЙНЫ 🔥',
                 prize: '💰 100 ЗОЛОТЫХ КУБОВ 💰',
-                tomorrowAt: 'ЗАВТРА В',
+                todayAt: 'СЕГОДНЯ В',
                 yourLocalTime: '(Ваше местное время)',
                 timeLeft: '⏰ ДО СТАРТА:',
                 battleActive: '🔥 БИТВА ИДЁТ! 🔥',
@@ -330,7 +330,7 @@
                 lastHours: '⚠️ LETZTE STUNDEN! ⚠️',
                 title: '🔥 FERAJNA SCHLACHTEN 🔥',
                 prize: '💰 100 GOLDWÜRFEL 💰',
-                tomorrowAt: 'MORGEN UM',
+                todayAt: 'HEUTE UM',
                 yourLocalTime: '(Deine Ortszeit)',
                 timeLeft: '⏰ ZEIT BIS START:',
                 battleActive: '🔥 KAMPF LÄUFT! 🔥',
@@ -351,7 +351,7 @@
                 lastHours: '⚠️ DERNIÈRES HEURES! ⚠️',
                 title: '🔥 BATAILLES FERAJNA 🔥',
                 prize: '💰 100 CUBES D\'OR 💰',
-                tomorrowAt: 'DEMAIN À',
+                todayAt: 'AUJOURD\'HUI À',
                 yourLocalTime: '(Votre heure locale)',
                 timeLeft: '⏰ TEMPS RESTANT :',
                 battleActive: '🔥 BATAILLE EN COURS ! 🔥',
@@ -372,7 +372,7 @@
                 lastHours: '⚠️ ¡ÚLTIMAS HORAS! ⚠️',
                 title: '🔥 BATALLAS FERAJNA 🔥',
                 prize: '💰 100 CUBOS DE ORO 💰',
-                tomorrowAt: 'MAÑANA A LAS',
+                todayAt: 'HOY A LAS',
                 yourLocalTime: '(Tu hora local)',
                 timeLeft: '⏰ TIEMPO RESTANTE:',
                 battleActive: '🔥 ¡BATALLA EN VIVO! 🔥',
@@ -427,36 +427,24 @@
             }
         }
         
-        // Calculate time to next 19:00 Poland time
+        // Calculate time to today's 19:00 Poland time
         function getTimeToEvent() {
             const now = new Date();
             const polandOffset = getPolandOffset(now);
             const todayPolandEvent = new Date();
             todayPolandEvent.setUTCHours(19 - polandOffset, 0, 0, 0);
             let eventTime;
-            if (now < todayPolandEvent) {
-                eventTime = todayPolandEvent;
-            } else {
-                const tomorrowPolandEvent = new Date(todayPolandEvent);
-                tomorrowPolandEvent.setDate(tomorrowPolandEvent.getDate() + 1);
-                eventTime = tomorrowPolandEvent;
-            }
+            eventTime = todayPolandEvent;
             return eventTime - now;
         }
         
-        // Get local Date of that event
+        // Get local Date of today's event
         function getLocalEventTime() {
             const now = new Date();
             const polandOffset = getPolandOffset(now);
             const todayPolandEvent = new Date();
             todayPolandEvent.setUTCHours(19 - polandOffset, 0, 0, 0);
-            if (now < todayPolandEvent) {
-                return todayPolandEvent;
-            } else {
-                const tomorrowPolandEvent = new Date(todayPolandEvent);
-                tomorrowPolandEvent.setDate(tomorrowPolandEvent.getDate() + 1);
-                return tomorrowPolandEvent;
-            }
+            return todayPolandEvent;
         }
         
         // Format remaining time
@@ -486,7 +474,7 @@
             
             // Update event time display
             const countdownText = document.querySelector('.countdown > div');
-            countdownText.innerHTML = `${t.tomorrowAt} <span id="localEventTime">${localTimeString}</span>!`;
+            countdownText.innerHTML = `${t.todayAt} <span id="localEventTime">${localTimeString}</span>!`;
             localTimeZone.textContent = `🕒 ${t.yourLocalTime}`;
             
             if (timeLeft > 0) {
