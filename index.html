@@ -3,525 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FERAJNA BATTLES</title>
+    <title>Ferajna Battles - Wyniki</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
         
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, #1a0033, #330066, #ff6600, #ffaa00);
-            background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite;
-            font-family: 'Orbitron', monospace;
-            color: #fff;
-            overflow-x: hidden;
+            background: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            color: #e0e0e0;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            line-height: 1.6;
         }
 
         .container {
             text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 20px;
-            border: 3px solid #ff6600;
-            box-shadow: 0 0 50px rgba(255, 102, 0, 0.8);
-            animation: pulse 2s infinite;
+            padding: 40px;
+            background: #2d2d2d;
+            border-radius: 12px;
+            border: 1px solid #404040;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             max-width: 600px;
-            position: relative;
-            overflow: hidden;
+            margin: 20px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(255, 102, 0, 0.8); }
-            50% { transform: scale(1.05); box-shadow: 0 0 80px rgba(255, 102, 0, 1); }
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            color: #ffffff;
         }
 
-        .urgent {
-            background: linear-gradient(90deg, #ff0000, #ff6600, #ff0000);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 18px;
-            font-weight: 900;
-            animation: textGlow 1s infinite alternate;
-            margin-bottom: 20px;
-        }
-
-        @keyframes textGlow {
-            from { text-shadow: 0 0 10px #ff0000; }
-            to { text-shadow: 0 0 20px #ff0000, 0 0 30px #ff6600; }
-        }
-
-        .title {
-            font-size: 48px;
-            font-weight: 900;
-            margin: 20px 0;
-            text-shadow: 0 0 20px #ffaa00;
-            animation: titleShake 3s infinite;
-        }
-
-        @keyframes titleShake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-2px) rotate(-0.5deg); }
-            75% { transform: translateX(2px) rotate(0.5deg); }
-        }
-
-        .prize {
-            font-size: 36px;
-            color: #ffaa00;
-            text-shadow: 0 0 15px #ffaa00;
-            margin: 30px 0;
-            animation: prizeFloat 2s ease-in-out infinite;
-        }
-
-        @keyframes prizeFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .countdown {
-            background: rgba(255, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid #ff0000;
-        }
-
-        .time-zone {
-            font-size: 14px;
-            color: #ccc;
-            margin: 5px 0;
-        }
-
-        .features {
-            text-align: left;
-            margin: 30px 0;
-            font-size: 18px;
-        }
-
-        .feature {
-            margin: 15px 0;
-            padding: 10px;
-            background: rgba(255, 102, 0, 0.1);
-            border-left: 4px solid #ff6600;
-            animation: featureGlow 3s infinite;
-        }
-
-        @keyframes featureGlow {
-            0%, 100% { background: rgba(255, 102, 0, 0.1); }
-            50% { background: rgba(255, 102, 0, 0.3); }
-        }
-
-        .cta {
-            background: linear-gradient(45deg, #ff0000, #ff6600);
-            border: none;
-            padding: 20px 40px;
-            font-size: 24px;
-            font-weight: 900;
-            color: white;
-            border-radius: 15px;
-            cursor: pointer;
-            margin: 30px 0;
-            animation: ctaPulse 1.5s infinite;
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
-            font-family: 'Orbitron', monospace;
-            transition: all 0.3s ease;
-        }
-
-        .cta.disabled {
-            background: linear-gradient(45deg, #666, #888);
-            cursor: not-allowed;
-            animation: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta.active {
-            background: linear-gradient(45deg, #00ff00, #00aa00);
-            animation: ctaActivePulse 1s infinite;
-        }
-
-        @keyframes ctaPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        @keyframes ctaActivePulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 5px 30px rgba(0, 255, 0, 0.8); }
-            50% { transform: scale(1.15); box-shadow: 0 10px 40px rgba(0, 255, 0, 1); }
-        }
-
-        .cta:hover:not(.disabled) {
-            transform: scale(1.15);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.8);
-        }
-
-        .cta.active:hover {
-            box-shadow: 0 15px 40px rgba(0, 255, 0, 1);
-        }
-
-        .countdown-timer {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid #ffaa00;
-            font-size: 20px;
-            font-weight: 900;
-        }
-
-        .local-time {
+        .status {
             font-size: 16px;
-            color: #ffaa00;
+            color: #888;
+            margin-bottom: 30px;
+            padding: 12px;
+            background: #363636;
+            border-radius: 8px;
+        }
+
+        .winners {
+            background: #2a4a2a;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #4ade80;
+        }
+
+        .winners h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            color: #4ade80;
+        }
+
+        .winner-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+            margin: 8px 0;
+        }
+
+        .current-leader {
+            background: #1e3a8a;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .current-leader h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: #3b82f6;
+        }
+
+        .leader-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
             margin: 10px 0;
         }
 
-        .warning {
-            color: #ff0000;
+        .contact-info {
+            background: #404040;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .contact-button {
+            background: #3b82f6;
+            border: none;
+            padding: 12px 24px;
             font-size: 16px;
-            font-weight: 700;
-            animation: warningBlink 2s infinite;
+            font-weight: 500;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: background 0.2s ease;
         }
 
-        @keyframes warningBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .contact-button:hover {
+            background: #2563eb;
         }
 
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #ffaa00;
-            border-radius: 50%;
-            animation: particleFloat 4s infinite linear;
-        }
-
-        @keyframes particleFloat {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        .info {
+            color: #999;
+            font-size: 14px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #363636;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="particles" id="particles"></div>
+        <h1>Ferajna Battles</h1>
         
-        <div class="urgent">⚠️ OSTATNIE GODZINY! ⚠️</div>
-        
-        <h1 class="title">🔥 FERAJNA BATTLES 🔥</h1>
-        
-        <div class="prize">💰 100 ZŁOTYCH KOSTEK 💰</div>
-        
-        <div class="countdown">
-            <div style="font-size: 24px; color: #ff0000; font-weight: 900;">DZISIAJ O <span id="localEventTime">19:00</span>!</div>
-            <div class="time-zone" id="localTimeZone">🇵🇱 (Twój lokalny czas)</div>
+        <div class="status">
+            Turniej został zakończony
         </div>
         
-        <div class="features">
-            <div class="feature">⚔️ <strong>EPICKIE POJEDYNKI</strong> - Walcz jak gladiator</div>
-            <div class="feature">🏆 <strong>ZWYCIĘZCA BIERZE WSZYSTKO</strong> - Bez litości</div>
-            <div class="feature">💎 <strong>EKSKLUZYWNA NAGRODA</strong> - Tylko dla jednego</div>
-            <div class="feature">🔥 <strong>ADRENALINA NA MAKSIE</strong> - Poczuj moc</div>
-            <div class="feature">🏰 <strong>WALKI POMIĘDZY WSZYSTKIMI BAZAMI</strong> - globalna rywalizacja</div>
+        <div class="winners">
+            <h2>Zwycięzcy</h2>
+            <div class="winner-name">KAN</div>
+            <div class="winner-name">JESTEMBOB123</div>
         </div>
         
-        <div class="countdown-timer" id="countdownTimer">
-            <div id="timeLeft"></div>
-            <div class="local-time" id="localTime"></div>
+        <div class="current-leader">
+            <h2>Nowa ferajna</h2>
+            <div class="leader-name">JESTEMBOB123</div>
+            <div class="contact-info">
+                Prowadzi nową ferjnę z pełnym wsparciem.<br>
+                Tamta ferajna się zakończyła i nie ma już wsparcia.
+            </div>
         </div>
         
-        <button class="cta disabled" id="battleButton">
-            <span id="buttonText">⏰ PRZYGOTUJ SIĘ DO WALKI!</span>
+        <button class="contact-button" id="contactButton">
+            Profil lidera
         </button>
         
-        <div class="warning">
-            ⏰ MIEJSCA SĄ OGRANICZONE!<br>
-            👑 ZOSTAŃ KRÓLEM FERAJNY!
+        <div class="info">
+            Dziękujemy za udział w turnieju.<br>
+            Stara ferajna nie działa, nowa jest pod przywództwem JESTEMBOB123.
         </div>
     </div>
 
     <script>
-        // Pełne tłumaczenia + nowy punkt o "bazach", monety -> kostki
-        const translations = {
-            'pl': {
-                lastHours: '⚠️ OSTATNIE GODZINY! ⚠️',
-                title: '🔥 FERAJNA BATTLES 🔥',
-                prize: '💰 100 ZŁOTYCH KOSTEK 💰',
-                todayAt: 'DZISIAJ O',
-                yourLocalTime: '(Twój lokalny czas)',
-                timeLeft: '⏰ DO STARTU:',
-                battleActive: '🔥 WALKA TRWA! 🔥',
-                joinNow: '⚔️ DOŁĄCZ DO BITWY TERAZ!',
-                epicDuels: '⚔️ <strong>EPICKIE POJEDYNKI</strong> - Walcz jak gladiator',
-                winnerTakesAll: '🏆 <strong>ZWYCIĘZCA BIERZE WSZYSTKO</strong> - Bez litości',
-                exclusiveReward: '💎 <strong>EKSKLUZYWNA NAGRODA</strong> - Tylko dla jednego',
-                maxAdrenaline: '🔥 <strong>ADRENALINA NA MAKSIE</strong> - Poczuj moc',
-                baseWars: '🏰 <strong>WALKI POMIĘDZY WSZYSTKIMI BAZAMI</strong> - globalna rywalizacja',
-                prepareBtn: '⏰ PRZYGOTUJ SIĘ DO WALKI!',
-                fightBtn: '⚔️ WALCZ TERAZ!',
-                limitedSpots: '⏰ MIEJSCA SĄ OGRANICZONE!',
-                becomeKing: '👑 ZOSTAŃ KRÓLEM FERAJNY!',
-                alertWait: '🔥 Cierpliwości! Walka rozpocznie się za:',
-                alertPrepare: '\\n\\n⚔️ Przygotuj się na epicką batalię!'
-            },
-            'en': {
-                lastHours: '⚠️ LAST HOURS! ⚠️',
-                title: '🔥 FERAJNA BATTLES 🔥',
-                prize: '💰 100 GOLD CUBES 💰',
-                todayAt: 'TODAY AT',
-                yourLocalTime: '(Your local time)',
-                timeLeft: '⏰ TIME LEFT:',
-                battleActive: '🔥 BATTLE IS LIVE! 🔥',
-                joinNow: '⚔️ JOIN THE BATTLE NOW!',
-                epicDuels: '⚔️ <strong>EPIC DUELS</strong> - Fight like a gladiator',
-                winnerTakesAll: '🏆 <strong>WINNER TAKES ALL</strong> - No mercy',
-                exclusiveReward: '💎 <strong>EXCLUSIVE REWARD</strong> - Only for one',
-                maxAdrenaline: '🔥 <strong>MAX ADRENALINE</strong> - Feel the power',
-                baseWars: '🏰 <strong>BATTLES BETWEEN ALL BASES</strong> - global rivalry',
-                prepareBtn: '⏰ GET READY TO FIGHT!',
-                fightBtn: '⚔️ FIGHT NOW!',
-                limitedSpots: '⏰ LIMITED SPOTS!',
-                becomeKing: '👑 BECOME THE KING!',
-                alertWait: '🔥 Patience! Battle starts in:',
-                alertPrepare: '\\n\\n⚔️ Prepare for epic battle!'
-            },
-            'ru': {
-                lastHours: '⚠️ ПОСЛЕДНИЕ ЧАСЫ! ⚠️',
-                title: '🔥 БИТВЫ ФЕРАЙНЫ 🔥',
-                prize: '💰 100 ЗОЛОТЫХ КУБОВ 💰',
-                todayAt: 'СЕГОДНЯ В',
-                yourLocalTime: '(Ваше местное время)',
-                timeLeft: '⏰ ДО СТАРТА:',
-                battleActive: '🔥 БИТВА ИДЁТ! 🔥',
-                joinNow: '⚔️ ПРИСОЕДИНЯЙСЯ К БИТВЕ!',
-                epicDuels: '⚔️ <strong>ЭПИЧЕСКИЕ ДУЭЛИ</strong> - Сражайся как гладиатор',
-                winnerTakesAll: '🏆 <strong>ПОБЕДИТЕЛЬ ЗАБИРАЕТ ВСЁ</strong> - Без пощады',
-                exclusiveReward: '💎 <strong>ЭКСКЛЮЗИВНАЯ НАГРАДА</strong> - Только для одного',
-                maxAdrenaline: '🔥 <strong>МАКСИМУМ АДРЕНАЛИНА</strong> - Почувствуй силу',
-                baseWars: '🏰 <strong>БОИ МЕЖДУ ВСЕМИ БАЗАМИ</strong> - глобальное соперничество',
-                prepareBtn: '⏰ ГОТОВЬСЯ К БИТВЕ!',
-                fightBtn: '⚔️ В БОЙ СЕЙЧАС!',
-                limitedSpots: '⏰ МЕСТА ОГРАНИЧЕНЫ!',
-                becomeKing: '👑 СТАНЬ КОРОЛЁМ!',
-                alertWait: '🔥 Терпение! Битва начнётся через:',
-                alertPrepare: '\\n\\n⚔️ Готовься к эпической битве!'
-            },
-            'de': {
-                lastHours: '⚠️ LETZTE STUNDEN! ⚠️',
-                title: '🔥 FERAJNA SCHLACHTEN 🔥',
-                prize: '💰 100 GOLDWÜRFEL 💰',
-                todayAt: 'HEUTE UM',
-                yourLocalTime: '(Deine Ortszeit)',
-                timeLeft: '⏰ ZEIT BIS START:',
-                battleActive: '🔥 KAMPF LÄUFT! 🔥',
-                joinNow: '⚔️ JETZT DER SCHLACHT BEITRETEN!',
-                epicDuels: '⚔️ <strong>EPISCHE DUELLE</strong> - Kämpfe wie ein Gladiator',
-                winnerTakesAll: '🏆 <strong>GEWINNER NIMMT ALLES</strong> - Ohne Gnade',
-                exclusiveReward: '💎 <strong>EXKLUSIVE BELOHNUNG</strong> - Nur für einen',
-                maxAdrenaline: '🔥 <strong>MAX ADRENALIN</strong> - Spüre die Macht',
-                baseWars: '🏰 <strong>KÄMPFE ZWISCHEN ALLEN BASISLAGERN</strong> - globaler Wettstreit',
-                prepareBtn: '⏰ BEREIT ZUM KAMPF!',
-                fightBtn: '⚔️ JETZT KÄMPFEN!',
-                limitedSpots: '⏰ BEGRENZTE PLÄTZE!',
-                becomeKing: '👑 WERDE KÖNIG!',
-                alertWait: '🔥 Geduld! Kampf beginnt in:',
-                alertPrepare: '\\n\\n⚔️ Bereite dich auf epischen Kampf vor!'
-            },
-            'fr': {
-                lastHours: '⚠️ DERNIÈRES HEURES! ⚠️',
-                title: '🔥 BATAILLES FERAJNA 🔥',
-                prize: '💰 100 CUBES D\'OR 💰',
-                todayAt: 'AUJOURD\'HUI À',
-                yourLocalTime: '(Votre heure locale)',
-                timeLeft: '⏰ TEMPS RESTANT :',
-                battleActive: '🔥 BATAILLE EN COURS ! 🔥',
-                joinNow: '⚔️ REJOINS LA BATAILLE MAINTENANT !',
-                epicDuels: '⚔️ <strong>DUELS ÉPIQUES</strong> - Combats comme un gladiateur',
-                winnerTakesAll: '🏆 <strong>LE GAGNANT PREND TOUT</strong> - Sans pitié',
-                exclusiveReward: '💎 <strong>RÉCOMPENSE EXCLUSIVE</strong> - Pour un seul',
-                maxAdrenaline: '🔥 <strong>MAX ADRÉNALINE</strong> - Ressens le pouvoir',
-                baseWars: '🏰 <strong>COMBATS ENTRE TOUTES LES BASES</strong> - rivalité globale',
-                prepareBtn: '⏰ PRÊT À COMBATTRE !',
-                fightBtn: '⚔️ COMBAT MAINTENANT !',
-                limitedSpots: '⏰ PLACES LIMITÉES !',
-                becomeKing: '👑 DEVIENS ROI !',
-                alertWait: '🔥 Patience ! La bataille commence dans :',
-                alertPrepare: '\\n\\n⚔️ Prépare-toi pour une bataille épique !'
-            },
-            'es': {
-                lastHours: '⚠️ ¡ÚLTIMAS HORAS! ⚠️',
-                title: '🔥 BATALLAS FERAJNA 🔥',
-                prize: '💰 100 CUBOS DE ORO 💰',
-                todayAt: 'HOY A LAS',
-                yourLocalTime: '(Tu hora local)',
-                timeLeft: '⏰ TIEMPO RESTANTE:',
-                battleActive: '🔥 ¡BATALLA EN VIVO! 🔥',
-                joinNow: '⚔️ ¡ÚNETE A LA BATALLA AHORA!',
-                epicDuels: '⚔️ <strong>DUELOS ÉPICOS</strong> - Lucha como un gladiador',
-                winnerTakesAll: '🏆 <strong>EL GANADOR SE LLEVA TODO</strong> - Sin piedad',
-                exclusiveReward: '💎 <strong>RECOMPENSA EXCLUSIVA</strong> - Solo para uno',
-                maxAdrenaline: '🔥 <strong>ADRENALINA MÁXIMA</strong> - Siente el poder',
-                baseWars: '🏰 <strong>BATALLAS ENTRE TODAS LAS BASES</strong> - rivalidad global',
-                prepareBtn: '⏰ ¡LISTO PARA LUCHAR!',
-                fightBtn: '⚔️ ¡LUCHA AHORA!',
-                limitedSpots: '⏰ ¡LUGARES LIMITADOS!',
-                becomeKing: '👑 ¡CONVIÉRTETE EN REY!',
-                alertWait: '🔥 ¡Paciencia! La batalla comienza en:',
-                alertPrepare: '\\n\\n⚔️ ¡Prepárate para una batalla épica!'
-            }
+        document.getElementById('contactButton').onclick = function() {
+            window.open('https://www.kogama.com/profile/670365895/', '_blank');
         };
-
-        // Auto-detect user language
-        function detectLanguage() {
-            const lang = navigator.language || navigator.userLanguage;
-            const shortLang = lang.split('-')[0];
-            return translations[shortLang] || translations['en'];
-        }
-
-        const t = detectLanguage();
-
-        // Update all text content including interactive elements
-        function updateTexts() {
-            document.querySelector('.urgent').textContent = t.lastHours;
-            document.querySelector('.title').innerHTML = t.title;
-            document.querySelector('.prize').innerHTML = t.prize;
-            document.querySelector('.feature:nth-child(1)').innerHTML = t.epicDuels;
-            document.querySelector('.feature:nth-child(2)').innerHTML = t.winnerTakesAll;
-            document.querySelector('.feature:nth-child(3)').innerHTML = t.exclusiveReward;
-            document.querySelector('.feature:nth-child(4)').innerHTML = t.maxAdrenaline;
-            document.querySelector('.feature:nth-child(5)').innerHTML = t.baseWars;
-            document.querySelector('.warning').innerHTML = t.limitedSpots + '<br>' + t.becomeKing;
-        }
-
-        // Calculate precise Poland timezone offset (CET/CEST)
-        function getPolandOffset(date) {
-            const utcTime = date.getTime() + (date.getTimezoneOffset() * 60000);
-            const polandTime = new Date(utcTime + (1 * 3600000)); // base CET
-            const year = date.getFullYear();
-            const marchLastSunday = new Date(year, 2, 31 - ((new Date(year, 2, 31).getDay() || 7) - 1));
-            const octoberLastSunday = new Date(year, 9, 31 - ((new Date(year, 9, 31).getDay() || 7) - 1));
-            if (date >= marchLastSunday && date < octoberLastSunday) {
-                return 2; // CEST
-            } else {
-                return 1; // CET
-            }
-        }
-        
-        // Calculate time to today's 19:00 Poland time
-        function getTimeToEvent() {
-            const now = new Date();
-            const polandOffset = getPolandOffset(now);
-            const todayPolandEvent = new Date();
-            todayPolandEvent.setUTCHours(19 - polandOffset, 0, 0, 0);
-            let eventTime;
-            eventTime = todayPolandEvent;
-            return eventTime - now;
-        }
-        
-        // Get local Date of today's event
-        function getLocalEventTime() {
-            const now = new Date();
-            const polandOffset = getPolandOffset(now);
-            const todayPolandEvent = new Date();
-            todayPolandEvent.setUTCHours(19 - polandOffset, 0, 0, 0);
-            return todayPolandEvent;
-        }
-        
-        // Format remaining time
-        function formatTime(ms) {
-            const hours = Math.floor(ms / (1000 * 60 * 60));
-            const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((ms % (1000 * 60)) / 1000);
-            if (hours > 0) {
-                return `${hours}h ${minutes}m ${seconds}s`;
-            } else if (minutes > 0) {
-                return `${minutes}m ${seconds}s`;
-            } else {
-                return `${seconds}s`;
-            }
-        }
-        
-        // Main countdown update
-        function updateCountdown() {
-            const timeLeft = getTimeToEvent();
-            const localEventTime = getLocalEventTime();
-            const localTimeString = localEventTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            
-            const button = document.getElementById('battleButton');
-            const buttonText = document.getElementById('buttonText');
-            const timeLeftDiv = document.getElementById('timeLeft');
-            const localTimeZone = document.getElementById('localTimeZone');
-            
-            // Update event time display
-            const countdownText = document.querySelector('.countdown > div');
-            countdownText.innerHTML = `${t.todayAt} <span id="localEventTime">${localTimeString}</span>!`;
-            localTimeZone.textContent = `🕒 ${t.yourLocalTime}`;
-            
-            if (timeLeft > 0) {
-                // Before event
-                timeLeftDiv.innerHTML = `${t.timeLeft} ${formatTime(timeLeft)}`;
-                button.className = 'cta disabled';
-                buttonText.innerHTML = t.prepareBtn;
-                button.onclick = () => {
-                    alert(`${t.alertWait} ${formatTime(timeLeft)}${t.alertPrepare}`);
-                };
-            } else {
-                // Event live
-                timeLeftDiv.innerHTML = t.battleActive;
-                button.className = 'cta active';
-                buttonText.innerHTML = t.fightBtn;
-                button.onclick = () => {
-                    window.open('https://www.kogama.com/build/670156550/project/11232556/', '_blank');
-                };
-            }
-        }
-        
-        // Init
-        updateTexts();
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-        
-        // Animated particles
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 4 + 's';
-            particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            document.getElementById('particles').appendChild(particle);
-            setTimeout(() => particle.remove(), 6000);
-        }
-        setInterval(createParticle, 500);
-        
-        // Button hover effects
-        document.getElementById('battleButton').addEventListener('mouseenter', function() {
-            if (!this.classList.contains('disabled')) {
-                this.style.textShadow = '0 0 20px #fff';
-            }
-        });
-        document.getElementById('battleButton').addEventListener('mouseleave', function() {
-            this.style.textShadow = 'none';
-        });
     </script>
 </body>
 </html>
